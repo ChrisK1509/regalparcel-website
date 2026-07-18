@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regal Parcel — Variant B · Nocturne</title>
+<meta name="description" content="Regal Parcel is a London-based specialist freight house for fresh produce and seafood across the United Kingdom, the Middle East and Africa. White-glove service. Dedicated account directors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#13294F; --navy-950:#13294F; --navy-900:#17325F; --navy-850:#1C3D72; --navy-800:#265390; --navy-700:#3568AE;
+    --gold-700:#9E7118; --gold-600:#C08E1F; --gold-500:#DBA928; --gold-400:#EBBE45; --gold-300:#F3D06E; --gold-200:#F9E3A0;
+    --cream-50:#FBF7EE; --cream-100:#F2EBDD; --cream-200:#E4DAC4; --cream-300:#CBBE9E;
+    --ink-300:#9aa6b6;
+    --line:rgba(219,169,40,0.22); --line-soft:rgba(219,169,40,0.12);
+    --paper:#FBF7EE; --white:#fff;
+    --serif:'Cormorant Garamond','Times New Roman',serif;
+    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+    --container:1280px; --gutter:clamp(20px,4vw,56px);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--sans);font-weight:400;color:var(--cream-100);background:var(--black);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.6;font-size:16px;}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-0.012em;margin:0;color:var(--cream-50);line-height:1.04;text-wrap:balance;}
+  h1{font-size:clamp(44px,7vw,112px);font-weight:400;}
+  h2{font-size:clamp(40px,5vw,72px);font-weight:400;}
+  h3{font-size:clamp(24px,2.5vw,33px);font-weight:500;}
+  h4{font-size:20px;font-weight:600;}
+  p{margin:0;color:var(--cream-200);}
+  a{color:inherit;text-decoration:none;}
+  .italic{font-style:italic;font-family:var(--serif);}
+  .eyebrow{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-300);display:inline-flex;align-items:center;gap:14px;}
+  .eyebrow::before{display:none;}
+  .eyebrow.center{justify-content:center;}
+  .eyebrow.on-dark{color:var(--gold-300);}
+  .container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--gold-500);background:linear-gradient(180deg,#F3D06E,var(--gold-500));color:var(--black);cursor:pointer;transition:all .3s ease;line-height:1;border-radius:999px;box-shadow:0 10px 30px -12px rgba(219,169,40,0.5);}
+  .btn:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 16px 40px -14px rgba(219,169,40,0.65);}
+  .btn .arr{display:inline-block;transition:transform .3s;}
+  .btn:hover .arr{transform:translateX(4px);}
+  .btn.ghost{border:1px solid rgba(219,169,40,0.55);background:transparent;color:var(--cream-50);box-shadow:none;}
+  .btn.ghost:hover{border-color:var(--gold-400);color:var(--gold-400);background:rgba(219,169,40,0.08);}
+  .btn.dark{border:1px solid var(--gold-500);background:linear-gradient(180deg,#F3D06E,var(--gold-500));color:var(--black);box-shadow:0 10px 30px -12px rgba(219,169,40,0.5);}
+  .btn.dark:hover{border-color:var(--gold-500);color:var(--black);background:linear-gradient(180deg,#F3D06E,var(--gold-500));}
+
+  .utility{background:var(--black);color:var(--cream-100);font-size:12px;letter-spacing:0.08em;border-bottom:1px solid var(--line-soft);}
+  .utility .row{display:flex;justify-content:space-between;align-items:center;height:40px;}
+  .utility .left,.utility .right{display:flex;align-items:center;gap:28px;}
+  .utility a{transition:color .2s;opacity:.82;}
+  .utility a:hover{color:var(--gold-400);opacity:1;}
+  .utility .sep{color:rgba(219,169,40,0.35);}
+  .utility svg{vertical-align:middle;margin-right:6px;}
+  @media(max-width:768px){.utility .left .item.hide-mobile{display:none;}.utility .right{gap:16px;}}
+
+  .header{background:rgba(14,31,60,0.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:50;}
+  .header .row{display:flex;align-items:center;justify-content:space-between;height:96px;}
+  .logo{display:flex;align-items:center;gap:14px;}
+  .nav{display:flex;align-items:center;gap:34px;}
+  .nav a{font-size:13.5px;font-weight:500;color:var(--cream-100);position:relative;transition:color .2s;}
+  .nav a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--gold-400);transition:width .3s;}
+  .nav a:hover{color:var(--gold-300);}
+  .nav a:hover::after{width:100%;}
+  .header-cta{display:flex;align-items:center;gap:14px;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+  .menu-toggle span{display:block;width:24px;height:1.5px;background:var(--cream-100);margin:5px 0;}
+  @media(max-width:1024px){.nav{display:none;}.menu-toggle{display:block;}.header-cta .btn{display:none;}}
+
+  /* HERO — cinematic night globe full-bleed */
+  .hero{position:relative;padding:clamp(56px,6.5vw,104px) 0;background:linear-gradient(90deg,rgba(10,24,48,0.92) 0%,rgba(10,24,48,0.74) 38%,rgba(10,24,48,0.30) 70%,rgba(10,24,48,0.55) 100%),linear-gradient(180deg,rgba(10,24,48,0.55),rgba(10,24,48,0.30) 40%,rgba(10,24,48,0.85)),url("Photos/Hero_Logistics.png");background-size:cover;background-position:center;color:var(--cream-50);overflow:hidden;}
+  .hero::after{content:"";position:absolute;left:-10%;top:20%;width:50%;height:70%;background:radial-gradient(closest-side,rgba(219,169,40,0.16),transparent 70%);pointer-events:none;}
+  .hero .container{position:relative;display:grid;grid-template-columns:1.22fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;}
+  .hero h1{color:var(--cream-50);margin-bottom:30px;text-shadow:0 2px 40px rgba(0,0,0,0.5);}
+  @media(max-width:1050px){.hero h1 span[style*="nowrap"]{white-space:normal !important;}}
+  .hero h1 .accent{color:var(--gold-300);font-style:italic;font-weight:400;}
+  .hero .lede{color:var(--cream-100);font-size:clamp(16px,1.3vw,19px);line-height:1.75;max-width:540px;margin-bottom:40px;font-weight:300;}
+  .hero .cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+  .hero-meta{display:flex;gap:48px;padding-top:30px;border-top:1px solid var(--line);flex-wrap:wrap;flex:1;align-items:center;justify-content:center;}
+  .hero-meta .item .v{font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold-300);display:block;margin-bottom:4px;}
+  .hero-meta .item .l{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-200);opacity:.8;}
+  .hero-visual{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;}
+  .hero-card{position:relative;background:linear-gradient(180deg,rgba(53,104,174,0.40),rgba(38,83,144,0.30));border:1px solid var(--line);padding:38px;backdrop-filter:blur(14px);width:100%;max-width:460px;box-shadow:0 40px 90px -50px rgba(0,0,0,0.8);}
+  .hero-card::before{content:"";position:absolute;top:13px;left:13px;right:13px;bottom:13px;border:1px solid rgba(219,169,40,0.18);pointer-events:none;}
+  .hero-card .label{font-size:10px;letter-spacing:0.3em;color:var(--gold-300);text-transform:uppercase;margin-bottom:18px;}
+  .hero-card h3{color:var(--cream-50);font-size:23px;font-weight:400;margin-bottom:24px;line-height:1.3;}
+  .lane-list{display:flex;flex-direction:column;gap:0;}
+  .lane{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line-soft);font-size:14px;}
+  .lane:last-child{border-bottom:none;}
+  .lane .route{display:flex;align-items:center;gap:12px;color:var(--cream-100);}
+  .lane .route .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 10px var(--gold-500);}
+  .lane .time{font-size:11.5px;color:var(--cream-200);opacity:.72;letter-spacing:0.06em;}
+  .lane .arrow{color:var(--gold-400);}
+  @media(max-width:900px){.hero .container{grid-template-columns:1fr;}.hero-visual{margin-top:8px;}}
+
+  /* Trust */
+  .trust{background:var(--navy-950);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;text-align:center;position:relative;}
+  .trust-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--gold-400);margin-bottom:18px;}
+  .trust-line{font-family:var(--serif);font-size:20px;color:var(--cream-50);letter-spacing:0.01em;line-height:1.7;font-weight:400;}
+  .trust-line .sep{color:var(--gold-500);margin:0 16px;font-size:15px;position:relative;top:-2px;}
+  @media(max-width:768px){.trust{padding:26px 0;}.trust-line{font-size:15px;}.trust-line .sep{margin:0 8px;}}
+
+  section{padding:clamp(56px,6vw,92px) 0;position:relative;}
+  .section-head{text-align:center;max-width:740px;margin:0 auto clamp(34px,4vw,52px);}
+  .section-head h2{margin:24px 0 18px;color:var(--cream-50);}
+  .section-head .sub{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--cream-200);line-height:1.55;opacity:.9;}
+
+  /* Mark */
+  .mark{background:linear-gradient(rgba(10,24,48,0.72),rgba(10,24,48,0.84)),url("Photos/Block_5.jpg");background-color:var(--black);background-size:cover;background-position:center;text-align:center;padding:clamp(60px,7vw,104px) 0;}
+  .mark .container{max-width:940px;}
+  .mark .ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:30px;}
+  .mark .ornament .line{width:64px;height:1px;background:var(--gold-500);}
+  .mark .ornament .dot{width:6px;height:6px;background:var(--gold-500);transform:rotate(45deg);box-shadow:0 0 10px var(--gold-500);}
+  .mark blockquote{margin:0;font-family:var(--serif);font-size:clamp(30px,3.6vw,50px);font-weight:400;line-height:1.3;color:var(--cream-50);letter-spacing:-0.006em;text-wrap:balance;}
+  .mark blockquote em{color:var(--gold-300);font-style:italic;}
+  .mark .attrib{margin-top:38px;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--cream-200);}
+  .mark .motto{margin-top:12px;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--gold-300);}
+
+  /* Services — dark photo cards, lighter cinematic overlays */
+  .services{background:var(--black);}
+  .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service{background-color:var(--navy-900);background-size:cover;background-position:center;padding:42px 32px 46px;display:flex;flex-direction:column;gap:18px;transition:background .4s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;position:relative;overflow:hidden;}
+  .service:hover{transform:translateY(-8px) scale(1.025);z-index:2;box-shadow:0 34px 60px -32px rgba(0,0,0,0.85);}
+  .service::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,31,60,0.30) 0%,rgba(10,24,48,0.92) 100%);z-index:0;transition:background .4s;}
+  .service > *{position:relative;z-index:1;}
+  .service:hover::after{background:linear-gradient(180deg,rgba(10,27,51,0.20) 0%,rgba(14,31,60,0.86) 100%);}
+  .service .num{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold-300);}
+  .service .icon{width:42px;height:42px;color:var(--cream-50);}
+  .service h3{font-size:27px;color:var(--cream-50);margin-top:6px;}
+  .service p{font-size:14.5px;line-height:1.7;color:var(--cream-200);}
+  .service .link{margin-top:auto;padding-top:18px;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream-50);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:gap .3s,color .3s;}
+  .service .link:hover{gap:14px;color:var(--gold-300);}
+  @media(max-width:1024px){.service-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.service-grid{grid-template-columns:1fr;}}
+
+  /* Specialism */
+  .specialism{background:var(--black);}
+  .spec-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,84px);align-items:center;}
+  .spec-image{position:relative;aspect-ratio:4/5;background:linear-gradient(180deg,rgba(10,24,48,0.06),rgba(10,24,48,0.42)),url('Photos/Cold_Chain_02.png') center/cover;border:1px solid var(--line);box-shadow:0 50px 100px -50px rgba(0,0,0,0.9);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,background-size .8s ease;background-size:cover;}
+  .spec-image:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 60px 110px -45px rgba(0,0,0,0.95);background-size:106%;}
+  .spec-image::before{content:"";position:absolute;inset:16px;border:1px solid rgba(219,169,40,0.3);pointer-events:none;transition:inset .3s;}
+  .spec-image:hover::before{inset:12px;}
+  .spec-image .caption{position:absolute;bottom:24px;left:24px;right:24px;color:var(--cream-50);font-family:var(--serif);font-style:italic;font-size:18px;text-shadow:0 1px 12px rgba(0,0,0,0.8);}
+  .spec-content h2{margin:24px 0 28px;color:var(--cream-50);}
+  .spec-content p{font-size:17px;color:var(--cream-200);margin-bottom:20px;line-height:1.78;}
+  .spec-content .first{font-family:var(--serif);font-size:21px;color:var(--gold-200);font-style:italic;}
+  .spec-list{margin:32px 0 36px;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;}
+  .spec-list li{font-size:14px;color:var(--cream-200);padding-left:20px;position:relative;}
+  .spec-list li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:1px;background:var(--gold-400);}
+  @media(max-width:900px){.spec-grid{grid-template-columns:1fr;}}
+
+  /* Trade lanes — cinematic */
+  .lanes{background:linear-gradient(90deg,rgba(28,61,114,0.50) 0%,rgba(28,61,114,0.42) 45%,rgba(23,50,95,0.78) 100%),linear-gradient(180deg,rgba(28,61,114,0.72) 0%,rgba(28,61,114,0.30) 32%,rgba(28,61,114,0.40) 66%,rgba(10,24,48,0.88) 100%),url("Photos/Trade_Lanes_Globe.jpg");background-size:cover;background-position:center;color:var(--cream-100);position:relative;}
+  .lanes .container{position:relative;}
+  .lane-grid{display:grid;grid-template-columns:1fr;justify-items:end;min-height:420px;align-content:center;}
+  .lane-detail{width:100%;max-width:560px;background:linear-gradient(180deg,rgba(53,104,174,0.38),rgba(28,61,114,0.62));border:1px solid var(--line);backdrop-filter:blur(12px);padding:clamp(30px,3.6vw,48px);box-shadow:0 40px 90px -50px rgba(0,0,0,0.9);}
+  .lane-detail h3{color:var(--cream-50);margin-bottom:18px;font-size:33px;}
+  .lane-detail p{color:var(--cream-200);line-height:1.78;margin-bottom:28px;}
+  .lane-table{border-top:1px solid var(--line);}
+  .lane-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-soft);}
+  .lane-row .pin{width:8px;height:8px;background:var(--gold-400);transform:rotate(45deg);box-shadow:0 0 8px var(--gold-500);}
+  .lane-row .route{font-family:var(--serif);font-size:21px;color:var(--cream-50);}
+  .lane-row .route span{color:var(--gold-300);margin:0 8px;}
+  .lane-row .freq{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream-200);opacity:.75;}
+  @media(max-width:900px){.lane-grid{grid-template-columns:1fr;justify-items:stretch;}}
+
+  /* Standard */
+  .standard{background:var(--black);}
+  .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .pillar{padding:32px 0;border-top:1px solid var(--gold-500);transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s ease;}
+  .pillar:hover{transform:translateY(-8px) scale(1.025);border-top-color:var(--gold-300);}
+  .pillar .roman{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold-300);margin-bottom:16px;letter-spacing:0.1em;}
+  .pillar h3{font-size:26px;margin-bottom:14px;color:var(--cream-50);}
+  .pillar p{font-size:14.5px;color:var(--cream-200);line-height:1.72;}
+  @media(max-width:900px){.pillar-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.pillar-grid{grid-template-columns:1fr;}}
+
+  /* Process */
+  .process{background:linear-gradient(rgba(28,61,114,0.74),rgba(23,50,95,0.80)),url("Photos/Block_10.jpeg");background-color:var(--navy-850);background-size:cover;background-position:center;}
+  .process .eyebrow{color:var(--gold-400);}
+  .process .eyebrow::before{background:var(--gold-400);}
+  .process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:24px;}
+  .step{padding:8px 28px;position:relative;border-left:1px solid rgba(219,169,40,0.5);transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s ease;}
+  .step:hover{transform:translateY(-8px) scale(1.025);border-left-color:var(--gold-300);}
+  .step .roman{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold-300);margin-bottom:16px;display:block;}
+  .step h4{font-family:var(--serif);font-weight:500;color:var(--cream-50);font-size:23px;margin-bottom:10px;}
+  .step p{font-size:13.5px;color:var(--cream-200);line-height:1.65;}
+  @media(max-width:1024px){.process-steps{grid-template-columns:repeat(2,1fr);gap:28px 0;}}
+  @media(max-width:560px){.process-steps{grid-template-columns:1fr;}}
+
+  /* Cargo */
+  .cargo{background:var(--black);}
+  .cargo .eyebrow{color:var(--gold-400);}
+  .cargo .eyebrow::before{background:var(--gold-400);}
+  .cargo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .cargo-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--navy-900);box-shadow:0 40px 80px -50px rgba(0,0,0,0.9);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease;}
+  .cargo-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 50px 90px -45px rgba(0,0,0,0.95);}
+  .cargo-card .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s ease;}
+  .cargo-card:hover .img{transform:scale(1.06);}
+  .cargo-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,24,48,0) 30%,rgba(10,24,48,0.9) 100%);}
+  .cargo-card .content{position:absolute;bottom:0;left:0;right:0;padding:34px;color:var(--cream-50);}
+  .cargo-card .roman{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold-300);letter-spacing:0.1em;margin-bottom:8px;}
+  .cargo-card h3{color:var(--cream-50);font-size:30px;margin-bottom:10px;}
+  .cargo-card p{color:var(--cream-200);font-size:14px;line-height:1.6;}
+  .cargo-card .border{position:absolute;inset:16px;border:1px solid rgba(219,169,40,0.3);pointer-events:none;transition:inset .3s;}
+  .cargo-card:hover .border{inset:12px;}
+  @media(max-width:900px){.cargo-grid{grid-template-columns:1fr;}.cargo-card{aspect-ratio:4/3;}}
+
+  /* Quote CTA */
+  .quote-cta{background:linear-gradient(rgba(10,24,48,0.55),rgba(10,24,48,0.80)),url("Photos/Block_8.jpg");background-color:var(--black);background-size:cover;background-position:center;color:var(--cream-50);text-align:center;padding:clamp(100px,12vw,150px) 0;position:relative;overflow:hidden;}
+  .quote-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(760px 340px at 50% 100%,rgba(219,169,40,0.28),transparent 70%);}
+  .quote-cta .container{position:relative;max-width:820px;}
+  .quote-cta h2{color:var(--cream-50);font-weight:400;margin:24px 0;}
+  .quote-cta h2 em{color:var(--gold-300);font-style:italic;}
+  .quote-cta p{color:var(--cream-200);font-size:18px;line-height:1.7;margin-bottom:40px;}
+  .quote-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  /* Insights */
+  .insights{background:var(--black);}
+  .insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .insight{background:linear-gradient(180deg,rgba(53,104,174,0.42),rgba(38,83,144,0.30));padding:38px;border:1px solid var(--line);transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column;gap:16px;}
+  .insight:hover{border-color:var(--gold-500);transform:translateY(-8px) scale(1.025);box-shadow:0 36px 64px -36px rgba(0,0,0,0.9);}
+  .insight .meta{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-300);font-weight:600;}
+  .insight h3{font-size:26px;color:var(--cream-50);line-height:1.25;}
+  .insight p{font-size:14.5px;color:var(--cream-200);line-height:1.65;}
+  .insight .read{margin-top:auto;padding-top:12px;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-300);font-weight:600;display:inline-flex;align-items:center;gap:8px;}
+  @media(max-width:900px){.insight-grid{grid-template-columns:1fr;}}
+
+  /* Library — dark */
+  .library{background:var(--black);}
+  .library .intro-note{max-width:720px;margin:0 auto 48px;text-align:center;font-size:15.5px;color:var(--cream-200);line-height:1.75;}
+  .library .intro-note strong{color:var(--cream-50);font-weight:600;}
+  .lib-cat{border:1px solid var(--line);border-top:1px solid var(--gold-500);background:rgba(10,27,51,0.4);margin-bottom:14px;}
+  .lib-cat summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:18px;padding:22px 28px;user-select:none;}
+  .lib-cat summary::-webkit-details-marker{display:none;}
+  .lib-cat summary .roman{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--gold-300);min-width:28px;}
+  .lib-cat summary h3{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--cream-50);flex:1;}
+  .lib-cat summary .count{font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream-300);white-space:nowrap;}
+  .lib-cat summary .indicator{font-family:var(--serif);font-size:22px;color:var(--gold-300);line-height:1;transition:transform .25s;}
+  .lib-cat[open] summary .indicator{transform:rotate(45deg);}
+  .lib-cat summary:hover h3{color:var(--gold-300);}
+  .lib-table{width:100%;border-collapse:collapse;}
+  .lib-table td{padding:16px 28px;border-top:1px solid var(--line-soft);vertical-align:top;font-size:14.5px;color:var(--cream-200);line-height:1.6;}
+  .lib-table .form-code{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--cream-50);white-space:nowrap;width:150px;}
+  .lib-table .form-link{width:110px;text-align:right;white-space:nowrap;}
+  .lib-table .form-link a{font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-300);}
+  .lib-table .form-link a:hover{color:var(--cream-50);}
+  .lib-table .note{display:block;font-size:13px;color:var(--cream-300);margin-top:3px;}
+  .lib-services{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;}
+  .lib-svc{background:linear-gradient(180deg,rgba(53,104,174,0.42),rgba(38,83,144,0.30));border:1px solid var(--line);color:var(--cream-100);padding:32px 28px;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s ease,box-shadow .4s ease;}
+  .lib-svc:hover{transform:translateY(-8px) scale(1.025);border-color:var(--gold-500);box-shadow:0 30px 56px -36px rgba(0,0,0,0.85);z-index:2;}
+  .lib-svc .svc-code{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold-300);letter-spacing:0.08em;margin-bottom:14px;}
+  .lib-svc h4{font-family:var(--serif);font-weight:500;font-size:22px;color:var(--cream-50);margin-bottom:12px;line-height:1.25;}
+  .lib-svc p{font-size:13.5px;line-height:1.65;color:var(--cream-200);opacity:.9;flex:1;}
+  .lib-svc a{margin-top:20px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-300);}
+  .lib-svc a:hover{color:var(--cream-50);}
+  .lib-svc-head{margin:64px 0 8px;text-align:center;}
+  .lib-svc-head h3{font-family:var(--serif);font-weight:500;font-size:28px;color:var(--cream-50);}
+  .lib-svc-head p{font-size:14.5px;color:var(--cream-300);margin-top:8px;}
+  .lib-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px;}
+  .lib-note{padding:28px 0 0;border-top:1px solid var(--gold-500);}
+  .lib-note .roman{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold-300);margin-bottom:12px;letter-spacing:0.1em;}
+  .lib-note h4{font-family:var(--serif);font-weight:500;font-size:22px;color:var(--cream-50);margin-bottom:10px;}
+  .lib-note p{font-size:14px;color:var(--cream-200);line-height:1.7;}
+  .lib-source{margin-top:56px;text-align:center;font-size:13px;color:var(--cream-300);}
+  .lib-source a{color:var(--gold-300);font-weight:600;}
+  .lib-source a:hover{color:var(--cream-50);}
+  @media(max-width:1024px){.lib-services{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:900px){.lib-notes{grid-template-columns:1fr;gap:24px;}}
+  @media(max-width:680px){
+    .lib-cat summary{padding:18px 20px;flex-wrap:wrap;gap:10px;}
+    .lib-cat summary .count{display:none;}
+    .lib-table,.lib-table tbody,.lib-table tr,.lib-table td{display:block;width:100%;}
+    .lib-table td{padding:4px 20px;border-top:none;}
+    .lib-table tr{border-top:1px solid var(--line-soft);padding:14px 0;}
+    .lib-table .form-code{width:auto;}
+    .lib-table .form-link{text-align:left;padding-bottom:14px;}
+    .lib-services{grid-template-columns:1fr;}
+  }
+
+  footer{background:var(--black);color:var(--cream-200);padding:84px 0 32px;border-top:1px solid var(--gold-600);}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+  .foot-brand .name{font-family:var(--serif);font-size:30px;color:var(--cream-50);margin-bottom:16px;display:block;}
+  .foot-brand p{color:var(--cream-200);font-size:14px;line-height:1.7;max-width:360px;margin-bottom:24px;opacity:.85;}
+  .foot-brand .contact-line{font-size:13.5px;line-height:1.9;color:var(--cream-100);opacity:.9;}
+  .foot-brand .contact-line a:hover{color:var(--gold-300);}
+  .foot-col h4{color:var(--gold-300);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:22px;}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;}
+  .foot-col li a{font-size:14px;color:var(--cream-200);opacity:.8;transition:color .2s,opacity .2s;}
+  .foot-col li a:hover{color:var(--gold-300);opacity:1;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--cream-200);opacity:.7;flex-wrap:wrap;gap:16px;}
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  /* Cards that also carry .reveal: keep reveal fade-in but use the card's hover timing (higher specificity wins over .reveal) */
+  .service.reveal{transition:opacity .8s ease,background .4s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;}
+  .cargo-card.reveal{transition:opacity .8s ease,transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease;}
+  .insight.reveal{transition:opacity .8s ease,border-color .3s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;}
+  .pillar.reveal,.step.reveal{transition:opacity .8s ease,border-color .4s ease,transform .4s cubic-bezier(.2,.7,.2,1);}
+
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#040b17"/>
+    <text x="50" y="60" font-family="Georgia, serif" font-size="34" fill="#c9a961" text-anchor="middle">RP</text>
+  </svg>
+</template>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="utility">
+  <div class="container">
+    <div class="row">
+      <div class="left">
+        <span class="item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +44 7927 986 857
+        </span>
+        <span class="sep">|</span>
+        <span class="item hide-mobile">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@regalparcel.co.uk
+        </span>
+      </div>
+      <div class="right">
+        <a href="#track">Track Shipment</a>
+        <span class="sep">|</span>
+        <a href="#quote">Client Portal</a>
+        <span class="sep">|</span>
+        <a href="#contact">EN <span style="opacity:0.5">▾</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <a class="logo" href="#">
+        <img src="Photos/Logo_RP_new.png" alt="Regal Parcel — London · Est. MMXXVI" style="width: 230px; height: auto; display: block;">
+      </a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#specialism">Specialism</a>
+        <a href="#lanes">Trade Lanes</a>
+        <a href="#about">About</a>
+        <a href="#insights">Journal</a>
+        <a href="#library">Library</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a href="#quote" class="btn">Request a Quote <span class="arr">→</span></a>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;align-self:stretch;">
+      <span class="eyebrow on-dark">London · Fresh Cargo Specialists</span>
+      <h1>Fresh cargo,<br>carried <span class="accent">expertly</span><br><span style="white-space:nowrap;">across continents.</span></h1>
+      <p class="lede">Regal Parcel is a London freight house for fresh produce and seafood between the United Kingdom, the Middle East and Africa. We move time-critical, temperature-controlled cargo under the personal care of a dedicated account director — door to door, port to plate.</p>
+      <div class="cta-row">
+        <a href="#quote" class="btn">Request a Quote <span class="arr">→</span></a>
+        <a href="#specialism" class="btn ghost">Our Specialism</a>
+      </div>
+      <div class="hero-meta">
+        <div class="item">
+          <span class="v">−1°C to 14°C</span>
+          <span class="l">Cold Chain Range</span>
+        </div>
+        <div class="item" style="text-align:center;">
+          <span class="v">24 / 7</span>
+          <span class="l">Director Access</span>
+        </div>
+        <div class="item">
+          <span class="v">48 hrs</span>
+          <span class="l">UK ↔ Gulf Air</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="label">Active Trade Lanes</div>
+        <h3>Refrigerated corridors,<br>UK ↔ MEA, daily.</h3>
+        <div class="lane-list">
+          <div class="lane">
+            <div class="route"><span class="dot"></span> London <span class="arrow">⇋</span> Dubai</div>
+            <span class="time">48 hr · Air</span>
+          </div>
+          <div class="lane">
+            <div class="route"><span class="dot"></span> London <span class="arrow">⇋</span> Banjul</div>
+            <span class="time">52 hr · Air</span>
+          </div>
+          <div class="lane">
+            <div class="route"><span class="dot"></span> London <span class="arrow">⇋</span> Accra</div>
+            <span class="time">54 hr · Air</span>
+          </div>
+          <div class="lane">
+            <div class="route"><span class="dot"></span> London <span class="arrow">⇋</span> Harare</div>
+            <span class="time">60 hr · Air</span>
+          </div>
+          <div class="lane">
+            <div class="route"><span class="dot"></span> Heathrow <span class="arrow">⇋</span> Nairobi</div>
+            <span class="time">36 hr · Air</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-eyebrow">— Accredited &amp; Regulated —</div>
+    <div class="trust-line">
+      <span>Member of BIFA</span>
+      <span class="sep">·</span>
+      <span>Member of FIATA</span>
+      <span class="sep">·</span>
+      <span>HMRC CCG Holder</span>
+      <span class="sep">·</span>
+      <span>Defra IPAFFS Registered</span>
+      <span class="sep">·</span>
+      <span>AEO Certified</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MARK SECTION ============ -->
+<section class="mark">
+  <div class="container">
+    <div class="ornament">
+      <span class="line"></span><span class="dot"></span><span class="line"></span>
+    </div>
+    <blockquote>
+      Fresh cargo demands more than transport. It demands <em>care</em>, <em>continuity</em> and the kind of trust that comes from a single name on the contract.
+    </blockquote>
+    <div class="attrib">The Regal Parcel Standard</div>
+    <div class="motto">— Per Mare, Per Terras —</div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— I — Our Services</span>
+      <h2>End-to-end freight, with one signature on every shipment.</h2>
+      <p class="sub">From the field or quayside in country of origin to the cold store of destination — a single house, four disciplines, one account director.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service" style="background-image: linear-gradient(180deg, rgba(10, 31, 61, 0.55) 0%, rgba(7, 23, 46, 0.88) 100%), url('Photos/Block_6_Sea.jpg');">
+        <div class="num">i.</div>
+        <img class="icon" src="Photos/Boat_Icon.png" alt="Sea freight" style="width:54px;height:auto;">
+
+        <h3>Sea Freight</h3>
+        <p>Reefer container shipping on weekly sailings to and from Jebel Ali, Jeddah, Mombasa, Lagos and Casablanca. Full-container and consolidated loads.</p>
+        <a href="#" class="link">Explore Sea →</a>
+      </div>
+      <div class="service" style="background-image: linear-gradient(180deg, rgba(10, 31, 61, 0.55) 0%, rgba(7, 23, 46, 0.88) 100%), url('Photos/Block_6_AIR.jpg');">
+        <div class="num">ii.</div>
+        <img class="icon" src="Photos/Air_Icon.png" alt="Air freight" style="width:54px;height:auto;">
+        <h3>Air Freight</h3>
+        <p>Time-critical perishable airfreight from Heathrow, Stansted and Manchester. Pre-cooled, IATA-PCR compliant pallets with priority slot booking.</p>
+        <a href="#" class="link">Explore Air →</a>
+      </div>
+      <div class="service" style="background-image: linear-gradient(180deg, rgba(10, 31, 61, 0.55) 0%, rgba(7, 23, 46, 0.88) 100%), url('Photos/Block_6_Road.jpg');">
+        <div class="num">iii.</div>
+        <img class="icon" src="Photos/Road_Icons.png" alt="Road & final mile" style="width:54px;height:auto;">
+        <h3>Road & Final Mile</h3>
+        <p>Temperature-controlled road feeder services across the UK and EU, with seamless onward delivery to wholesale markets, retail DCs and HoReCa clients.</p>
+        <a href="#" class="link">Explore Road →</a>
+      </div>
+      <div class="service" style="background-image: linear-gradient(180deg, rgba(10, 31, 61, 0.55) 0%, rgba(7, 23, 46, 0.88) 100%), url('Photos/Block_6_CustomsBrokerage.jpg');">
+        <div class="num">iv.</div>
+        <img class="icon" src="Photos/Customs_Icon.png" alt="Customs brokerage" style="width:54px;height:auto;">
+        <h3>Customs Brokerage</h3>
+        <p>In-house customs clearance for UK, EU and MEA jurisdictions. Phytosanitary, IUU, EHC and IPAFFS documentation handled by our regulatory team.</p>
+        <a href="#" class="link">Explore Customs →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECIALISM ============ -->
+<section class="specialism" id="specialism">
+  <div class="container">
+    <div class="spec-grid">
+      <div class="spec-image">
+        <div class="caption">"Iced and shipped within hours of landing."</div>
+      </div>
+      <div class="spec-content">
+        <span class="eyebrow">— II — Our Specialism</span>
+        <h2>The cold chain is our craft.</h2>
+        <p class="first">Perishable freight is unforgiving. A single break in the chain — an unattended transfer, a missed customs window, a degree too warm — can spoil a season's harvest or land a catch in the bin.</p>
+        <p>We built Regal Parcel for that unforgiveness. Our entire operation is engineered around fresh fruit, vegetables and seafood moving between the United Kingdom and the markets of the Middle East and Africa. Every container is monitored end-to-end. Every clearance is pre-lodged. Every shipment is owned by a named director who answers your phone before lunch and after midnight.</p>
+        <ul class="spec-list">
+          <li>Pre-cooled reefer containers, −1°C to 14°C</li>
+          <li>24/7 GPS and temperature telemetry</li>
+          <li>Pre-lodged IPAFFS & phytosanitary certificates</li>
+          <li>EHC / catch certificates for UK seafood exports</li>
+          <li>Priority airline slot agreements at LHR & MAN</li>
+          <li>Bonded cold storage in London & Felixstowe</li>
+        </ul>
+        <a href="#quote" class="btn dark">Speak to a Director <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRADE LANES ============ -->
+<section class="lanes" id="lanes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center on-dark">— III — Trade Lanes</span>
+      <h2>From the British Isles to three continents.</h2>
+      <p class="sub">Specialist corridors connecting UK growers, fisheries and importers with the kitchens, markets and distributors of the Middle East and Africa.</p>
+    </div>
+
+    <div class="lane-grid">
+      <div class="lane-detail">
+        <h3>Active corridors</h3>
+        <p>Each lane is operated under a named director with deep regional relationships, ground handlers and clearance agents — so a shipment never falls between two desks.</p>
+        <div class="lane-table">
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">London <span>→</span> Dubai</span>
+            <span class="freq">Daily · Air</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">London <span>→</span> Banjul, Gambia</span>
+            <span class="freq">Weekly · Air</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">London <span>→</span> Accra, Ghana</span>
+            <span class="freq">3× weekly · Air</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">London <span>→</span> Harare, Zimbabwe</span>
+            <span class="freq">Weekly · Air</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">Heathrow <span>→</span> Nairobi</span>
+            <span class="freq">5× weekly · Air</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">Tilbury <span>→</span> Casablanca</span>
+            <span class="freq">Weekly · Sea</span>
+          </div>
+          <div class="lane-row">
+            <span class="pin"></span>
+            <span class="route">Manchester <span>→</span> Lagos</span>
+            <span class="freq">3× weekly · Air</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE STANDARD ============ -->
+<section class="standard" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— IV — The Regal Standard</span>
+      <h2>Four commitments that shape every shipment.</h2>
+      <p class="sub">A young house, but built on the standards of much older ones.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="roman">i.</div>
+        <h3>One name, one number.</h3>
+        <p>Every client is given a dedicated freight director — not a ticket queue. The same person who quotes your shipment is the person who answers when the truck is late.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">ii.</div>
+        <h3>Cold-chain integrity.</h3>
+        <p>Real-time temperature and location telemetry on every reefer. Documented chain of custody from grower or quayside to the receiver's bay door.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">iii.</div>
+        <h3>Regulatory fluency.</h3>
+        <p>UK exports of fish and produce live or die by paperwork. Our in-house team handles IPAFFS, EHCs, catch certificates and destination clearances as standard.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">iv.</div>
+        <h3>Discretion.</h3>
+        <p>Trade relationships are valuable. Volumes, suppliers and pricing are held in confidence — a posture borrowed from older London houses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— V — How We Work</span>
+      <h2>A measured five-step rhythm.</h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="step">
+        <span class="roman">i.</span>
+        <h4>Brief</h4>
+        <p>A 30-minute call to map cargo, origin, destination, frequency and tolerances. No obligation.</p>
+      </div>
+      <div class="step">
+        <span class="roman">ii.</span>
+        <h4>Quote</h4>
+        <p>A written proposal within 48 hours, with rate card, transit times and named account director.</p>
+      </div>
+      <div class="step">
+        <span class="roman">iii.</span>
+        <h4>Onboard</h4>
+        <p>Documentation, KYC and IT integration. We pre-lodge clearances and supplier instructions.</p>
+      </div>
+      <div class="step">
+        <span class="roman">iv.</span>
+        <h4>Move</h4>
+        <p>Live telemetry. Daily status. Single point of contact for the entire shipment lifecycle.</p>
+      </div>
+      <div class="step">
+        <span class="roman">v.</span>
+        <h4>Review</h4>
+        <p>A monthly performance review on transit, temperature, claims and cost per kilo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARGO ============ -->
+<section class="cargo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— VI — Cargo We Move</span>
+      <h2>Fresh, by definition.</h2>
+      <p class="sub">A focused remit. We move what we know, and we know it deeply.</p>
+    </div>
+
+    <div class="cargo-grid">
+      <div class="cargo-card">
+        <div class="img" style="background-image: linear-gradient(180deg, rgba(13,30,58,0.1), rgba(13,30,58,0.2)), url('Photos/Produce.png');"></div>
+        <div class="overlay"></div>
+        <div class="border"></div>
+        <div class="content">
+          <div class="roman">— i —</div>
+          <h3>Fresh Produce</h3>
+          <p>Soft fruits, stone fruits, leafy greens and root vegetables — moved under unbroken cold chain into UK retail and wholesale.</p>
+        </div>
+      </div>
+      <div class="cargo-card">
+        <div class="img" style="background-image: linear-gradient(180deg, rgba(13,30,58,0.1), rgba(13,30,58,0.2)), url('Photos/fish.png');"></div>
+        <div class="overlay"></div>
+        <div class="border"></div>
+        <div class="content">
+          <div class="roman">— ii —</div>
+          <h3>Seafood & Fish</h3>
+          <p>Salmon, shellfish and pelagic catch — landed, iced and cleared into the UK within hours under EHC.</p>
+        </div>
+      </div>
+      <div class="cargo-card">
+        <div class="img" style="background-image: linear-gradient(180deg, rgba(13,30,58,0.1), rgba(13,30,58,0.2)), url('Photos/Specialised_Imports.png');"></div>
+        <div class="overlay"></div>
+        <div class="border"></div>
+        <div class="content">
+          <div class="roman">— iii —</div>
+          <h3>Specialty Imports</h3>
+          <p>Dates, citrus, tropicals and herbs from MEA growers into British wholesalers, importers and grocery chains.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE CTA ============ -->
+<section class="quote-cta" id="quote">
+  <div class="container">
+    <span class="eyebrow center on-dark">— Request a Quote —</span>
+    <h2>Have cargo to move?<br><em>Speak to a director.</em></h2>
+    <p>Tell us what you ship, where it's going and when it needs to land. A named freight director will respond within one working day with a written proposal — rates, transit times and a clear plan.</p>
+    <div class="actions">
+      <a href="mailto:contact@regalparcel.co.uk" class="btn">Request a Quote <span class="arr">→</span></a>
+      <a href="tel:+447927986857" class="btn ghost">+44 7927 986 857</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section class="insights" id="insights">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— VII — The Journal</span>
+      <h2>Notes from the trade.</h2>
+      <p class="sub">Briefings on cold chain, regulation and the corridors we work.</p>
+    </div>
+
+    <div class="insight-grid">
+      <article class="insight">
+        <div class="meta">Regulation · 6 min read</div>
+        <h3>IPAFFS in 2026: a practical export guide.</h3>
+        <p>What's changed for UK exporters of plant and animal products this year, and the documentation traps that still snare new shippers.</p>
+        <a href="#" class="read">Read note →</a>
+      </article>
+      <article class="insight">
+        <div class="meta">Cold Chain · 4 min read</div>
+        <h3>The cost of a single break.</h3>
+        <p>What a one-hour gap in temperature control actually costs across a typical chilled salmon import into the UK, with figures.</p>
+        <a href="#" class="read">Read note →</a>
+      </article>
+      <article class="insight">
+        <div class="meta">Trade · 5 min read</div>
+        <h3>Why Casablanca should be on your route map.</h3>
+        <p>An underused port for UK shippers reaching North and West Africa, and how lane economics are shifting in 2026.</p>
+        <a href="#" class="read">Read note →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMS LIBRARY ============ -->
+<section class="library" id="library">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow center">— VIII — The Customs Library</span>
+      <h2>Every form, one ledger.</h2>
+      <p class="sub">The HMRC forms and online services used to bring goods into the United Kingdom — catalogued by purpose, each linked to its official source on GOV.UK.</p>
+    </div>
+
+    <p class="intro-note">Most commercial import declarations are made electronically through HMRC's <strong>Customs Declaration Service (CDS)</strong>, usually by a customs agent or freight forwarder. The forms below are the supporting instruments — guarantees, deferments, authorisations, reliefs and fallback procedures. Each entry links to the official GOV.UK publication page rather than the PDF itself, so you always receive the current version.</p>
+
+    <details class="lib-cat" open>
+      <summary><span class="roman">i.</span><h3>Guarantee, Payment &amp; Deferment</h3><span class="count">8 forms</span><span class="indicator">+</span></summary>
+      <table class="lib-table">
+        <tbody>
+          <tr><td class="form-code">C1200</td><td>Apply to defer payment of excise duties</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-deferment-arrangements-application-for-approval-c1200">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1201</td><td>Guarantee deferment of payment to HMRC</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-guarantee-deferment-of-payment-to-hmrc-c1201">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1201A</td><td>Notice of amendment to a C1201 deferment guarantee</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-amendment-to-form-c1201-deferment-guarantee-c1201a">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1201A TAPS</td><td>Amend a C1201 TAPS deferment guarantee</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-notice-of-amendment-to-c1201-taps-deferment-guarantee-c1201a-taps">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1201HO</td><td>Guarantee payments for hydrocarbon oils duty</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-guarantee-payment-of-hydrocarbon-oils-payments-to-hmrc-c1201ho">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1201 TAPS</td><td>Payment guarantee for the Excise Payment Security System</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-guarantee-payment-due-using-the-excise-payment-security-system-c1201taps">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">JCL</td><td>Joint Contractual Liability for a Customs Comprehensive Guarantee</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-give-a-joint-contractual-liability-for-customs-comprehensive-guarantee-potential-debts-jcl">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">SIVA2</td><td>VAT deferment schedule — Simplified Import VAT Accounting, reduced security</td><td class="form-link"><a href="https://www.gov.uk/government/publications/vat-deferment-schedule-simplified-import-vat-accounting-reduced-security-siva2">GOV.UK →</a></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details class="lib-cat">
+      <summary><span class="roman">ii.</span><h3>Authorisation &amp; Approval</h3><span class="count">2 forms</span><span class="indicator">+</span></summary>
+      <table class="lib-table">
+        <tbody>
+          <tr><td class="form-code">C&amp;E 48 CSE</td><td>Apply for Customs Supervised Exports approval</td><td class="form-link"><a href="https://www.gov.uk/government/publications/apply-for-customs-supervised-exports-approval-ce-48-cse">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">AEO</td><td>Notify HMRC of changes affecting Authorised Economic Operator status</td><td class="form-link"><a href="https://www.gov.uk/government/publications/notify-hmrc-of-changes-that-affect-your-authorised-economic-status">GOV.UK →</a></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details class="lib-cat">
+      <summary><span class="roman">iii.</span><h3>Clearance of Goods</h3><span class="count">7 forms</span><span class="indicator">+</span></summary>
+      <table class="lib-table">
+        <tbody>
+          <tr><td class="form-code">C27</td><td>Submit a notice of arrival of certain classes of goods</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-notice-of-arrival-c27">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C130</td><td>Apply to remove goods from a transit shed</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-removal-note-c130">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C130EX</td><td>Permission to progress shipment of goods after export</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-permission-to-progress-custom-input-entry-certified-receipt-for-goods-loaded-requiring-cie-departure-message-post-shipment-c13">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C257</td><td>Record your aircraft cargo (cargo manifest)</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-cargo-manifest-c257">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C384 (Vessels)</td><td>Release of a private vessel on payment of Customs Duty and VAT</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-private-vessel-application-for-release-on-payment-of-customs-duty-and-vat-c384-vessels">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1600</td><td>Summary declaration of goods arriving from non-UK countries</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-summary-declaration-goods-arrived-from-non-ec-countries-c1600">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1600A</td><td>Presentation of goods</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-presentation-of-third-country-goods-c1600a">GOV.UK →</a></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details class="lib-cat">
+      <summary><span class="roman">iv.</span><h3>Declarations</h3><span class="count">10 forms</span><span class="indicator">+</span></summary>
+      <table class="lib-table">
+        <tbody>
+          <tr><td class="form-code">—</td><td>Request partial entry print of import and export data</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-partial-entry-request">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C110</td><td>Temporary arrival of a non-UK private motor vehicle for personal use</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-temporary-admission-notice-of-arrival-of-a-non-eu-private-motor-vehicle-c110">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C155</td><td>General declaration for inward or outward flights</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-general-declaration-outwardinward-c155">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C179B</td><td>Declare re-importation of a private motor vehicle from outside the UK</td><td class="form-link"><a href="https://www.gov.uk/guidance/declare-re-importation-of-a-private-motor-vehicle-from-outside-the-uk-c179b">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C913</td><td>Declare any weapons on board an aircraft</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-weapons-on-board-an-aircraft-declaration-c913">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1336</td><td>Customs declaration for passengers leaving the UK</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-declaration-of-departing-passengers-c1336">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1700</td><td>Amend import or export licence declarations</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-change-an-import-and-export-licence-declaration-c1700">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C&amp;E132</td><td>Record a certificate of posting of goods</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-certificate-of-posting-of-goods-ce132">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C&amp;E1246</td><td>Returned Goods Relief when using duplicate lists</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-returned-goods-relief-declarations-for-using-duplicate-lists-ce1246">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">BOR286</td><td>Challenge Customs Duty or import VAT on parcels delivered by Royal Mail or Parcelforce<span class="note">Postal imports only — direct PDF published by HMRC</span></td><td class="form-link"><a href="https://assets.publishing.service.gov.uk/media/633c0416d3bf7f187d0ddcb2/BOR286-English-09-22.pdf">PDF →</a></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details class="lib-cat">
+      <summary><span class="roman">v.</span><h3>CHIEF &amp; CDS Fallback</h3><span class="count">3 forms</span><span class="indicator">+</span></summary>
+      <table class="lib-table">
+        <tbody>
+          <tr><td class="form-code">C1402(F)</td><td>Request entry or clearance during CHIEF or CDS downtime</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-chief-direct-trader-input-short-term-fallback-c1402-f">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">C1403(F)</td><td>Record CHIEF entries changed or cleared before a system failure</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-chief-acp80-short-term-fallback-procedures-c1403-f">GOV.UK →</a></td></tr>
+          <tr><td class="form-code">PA7</td><td>Request access to CHIEF through WEX channels</td><td class="form-link"><a href="https://www.gov.uk/government/publications/import-and-export-trade-request-for-chief-access-via-wex-channels-pa7">GOV.UK →</a></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <div class="lib-svc-head">
+      <h3>Online services — no paper form</h3>
+      <p>These were once paper forms but are now digital-only. Applicants sign in with a Government Gateway account and complete the process on GOV.UK.</p>
+    </div>
+    <div class="lib-services">
+      <div class="lib-svc">
+        <span class="svc-code">C285</span>
+        <h4>Repayment of Import Duty &amp; VAT</h4>
+        <p>Claim a repayment of overpaid import duty or VAT. CDS declarations must be claimed online — postal claims are no longer accepted. Three years for overpayments; one year for rejected imports (C&amp;E1179).</p>
+        <a href="https://www.gov.uk/guidance/how-to-claim-a-repayment-of-import-duty-and-vat-if-youve-overpaid">Read the guidance →</a>
+      </div>
+      <div class="lib-svc">
+        <span class="svc-code">CDS Claims</span>
+        <h4>Claim via the Customs Declaration Service</h4>
+        <p>The online route for repayment claims where the original declaration was made on CDS. Have all supporting documents ready to upload before starting.</p>
+        <a href="https://www.gov.uk/guidance/apply-for-a-repayment-of-import-duty-and-vat-in-the-customs-declaration-service">Start a claim →</a>
+      </div>
+      <div class="lib-svc">
+        <span class="svc-code">ToR1</span>
+        <h4>Transfer of Residence Relief</h4>
+        <p>Relief from customs charges on personal belongings when moving to the UK. HMRC issues a Unique Reference Number for the import declaration, used with procedure code 40&nbsp;00&nbsp;C01. Apply before goods are shipped.</p>
+        <a href="https://www.gov.uk/guidance/application-for-transfer-of-residence-relief-tor1">Apply on GOV.UK →</a>
+      </div>
+      <div class="lib-svc">
+        <span class="svc-code">C79</span>
+        <h4>Import VAT Certificates</h4>
+        <p>Monthly certificates showing import VAT paid — the evidence needed to reclaim import VAT on the VAT return. Retrieved digitally through the CDS financial dashboard.</p>
+        <a href="https://www.gov.uk/guidance/get-your-import-vat-certificates">Get your C79 →</a>
+      </div>
+    </div>
+
+    <div class="lib-notes">
+      <div class="lib-note">
+        <div class="roman">i.</div>
+        <h4>Declarations are electronic</h4>
+        <p>The standard import declaration is made through the Customs Declaration Service, not on paper. Most traders appoint a customs agent or freight forwarder — the forms above support that process; they do not replace it.</p>
+      </div>
+      <div class="lib-note">
+        <div class="roman">ii.</div>
+        <h4>VAT-registered? Use your return</h4>
+        <p>VAT-registered businesses cannot reclaim overpaid import VAT through the C285 service. The correction is made as an adjustment on the VAT return instead — a frequent and costly point of confusion.</p>
+      </div>
+      <div class="lib-note">
+        <div class="roman">iii.</div>
+        <h4>Postal imports are different</h4>
+        <p>For parcels delivered by Royal Mail or Parcelforce, incorrect customs charges are challenged on form BOR286 — not C285. Check which carrier delivered the goods before choosing your route.</p>
+      </div>
+    </div>
+
+    <p class="lib-source">Master source: <a href="https://www.gov.uk/government/collections/forms-for-import-and-export">Forms for import and export — GOV.UK</a> · Reference list verified June 2026. General information, not customs, tax or legal advice.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="name">Regal Parcel</span>
+        <p>A London freight house for fresh produce and seafood between the United Kingdom, the Middle East and Africa. White-glove freight forwarding and customs brokerage under the personal care of a named director.</p>
+        <div class="contact-line">
+          London<br>
+          <a href="tel:+447927986857">+44 7927 986 857</a><br>
+          <a href="mailto:contact@regalparcel.co.uk">contact@regalparcel.co.uk</a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Sea Freight</a></li>
+          <li><a href="#services">Air Freight</a></li>
+          <li><a href="#services">Road & Final Mile</a></li>
+          <li><a href="#services">Customs Brokerage</a></li>
+          <li><a href="#specialism">Cold Chain</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Trade Lanes</h4>
+        <ul>
+          <li><a href="#lanes">United Kingdom</a></li>
+          <li><a href="#lanes">Gulf · UAE</a></li>
+          <li><a href="#lanes">West Africa · Gambia, Ghana</a></li>
+          <li><a href="#lanes">East Africa · Kenya</a></li>
+          <li><a href="#lanes">Southern Africa · Zimbabwe</a></li>
+          <li><a href="#lanes">North Africa · Morocco</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">The Standard</a></li>
+          <li><a href="#insights">The Journal</a></li>
+          <li><a href="#library">Customs Library</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>© MMXXVI Regal Parcel Ltd. · Registered in England & Wales · Company No. 17235514</div>
+      <div style="display:flex; gap:24px;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms of Carriage</a>
+        <a href="#">Modern Slavery</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section:not(.services):not(.cargo), .insight, .service, .pillar, .step, .cargo-card').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+</script>
+
+</body>
+</html>
